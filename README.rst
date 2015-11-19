@@ -1,0 +1,53 @@
+========================
+python-searchlightclient
+========================
+
+OpenStack Indexing and Search API Client Library
+
+This is a client library for Searchlight built on the Searchlight API. It
+provides a Python API (the ``searchlightclient`` module) and a command-line
+tool (``searchlight``).
+
+The project is hosted on `Launchpad`_, where bugs can be filed. The code is
+hosted on `Github`_. Patches must be submitted using `Gerrit`_, *not* Github
+pull requests.
+
+.. _Github: https://github.com/openstack/python-searchlightclient
+.. _Launchpad: https://launchpad.net/searchlight
+.. _Gerrit: http://docs.openstack.org/infra/manual/developers.html#development-workflow
+
+python-searchlightclient is licensed under the Apache License like the rest of
+OpenStack.
+
+.. contents:: Contents:
+   :local:
+
+Command-line API
+----------------
+
+Python API
+----------
+
+To use with keystone as the authentication system::
+
+    >>> from keystoneclient.auth.identity import generic
+    >>> from keystoneclient import session
+    >>> from searchlightclient import client
+    >>> auth = generic.Password(auth_url=OS_AUTH_URL, username=OS_USERNAME, password=OS_PASSWORD, tenant_name=OS_TENANT_NAME)
+    >>> sc = client.Client('1', session=auth)
+    >>> sc.resource_types.list()
+    [...]
+
+
+* License: Apache License, Version 2.0
+* Documentation: http://docs.openstack.org/developer/python-searchlightclient
+* Source: http://git.openstack.org/cgit/openstack/python-searchlightclient
+* Bugs: http://bugs.launchpad.net/searchlight
+
+Testing
+-------
+
+There are multiple test targets that can be run to validate the code.
+
+* tox -e pep8 - style guidelines enforcement
+* tox -e py27 - traditional unit testing
