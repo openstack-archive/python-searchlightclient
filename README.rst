@@ -25,6 +25,62 @@ OpenStack.
 Command-line API
 ----------------
 
+To execute CLI commands to standalone searchlight set with keystone.
+
+* Clone repository for python-searchlightclient::
+
+    $ git clone https://github.com/openstack/python-searchlightclient.git
+    $ cd python-searchlightclient
+
+* Setup a virtualenv
+
+.. note::
+   This is an optional step, but will allow Searchlightclient's dependencies
+   to be installed in a contained environment that can be easily deleted
+   if you choose to start over or uninstall Searchlightclient.
+
+::
+
+    $ tox -evenv --notest
+
+Activate the virtual environment whenever you want to work in it.
+All further commands in this section should be run with the venv active:
+
+::
+
+    $ source .tox/venv/bin/activate
+
+.. note::
+   When ALL steps are complete, deactivate the virtualenv: $ deactivate
+
+* Install Searchlightclient and its dependencies::
+
+    (venv) $ python setup.py develop
+
+* To execute CLI commands::
+
+    $ export OS_USERNAME=<user>
+    $ export OS_PASSWORD=<password>
+    $ export OS_TENANT_NAME=<project>
+    $ export OS_AUTH_URL='http://localhost:5000/v2.0/'
+
+.. note::
+   With devstack you just need to $ source openrc <user> <project>
+
+::
+
+    $ openstack
+    (openstack) search resource-type list
+    +--------------------------+--------------------------+
+    | Name                     | Type                     |
+    +--------------------------+--------------------------+
+    | OS::Designate::RecordSet | OS::Designate::RecordSet |
+    | OS::Designate::Zone      | OS::Designate::Zone      |
+    | OS::Glance::Image        | OS::Glance::Image        |
+    | OS::Glance::Metadef      | OS::Glance::Metadef      |
+    | OS::Nova::Server         | OS::Nova::Server         |
+    +--------------------------+--------------------------+
+
 Python API
 ----------
 
