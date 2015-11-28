@@ -35,6 +35,23 @@ Facet = {
 }
 
 
+Resource = {
+    "hits":
+    {"hits":
+        [
+            {"_score": 0.3, "_type": "OS::Glance::Image", "_id": "1",
+             "_source": {"name": "image1",
+                         "updated_at": "2016-01-01T00:00:00Z"}},
+            {"_score": 0.3, "_type": "OS::Nova::Server", "_id": "2",
+             "_source": {"name": "instance1",
+                         "updated_at": "2016-01-01T00:00:00Z"}},
+        ],
+     "_shards": {"successful": 5, "failed": 0, "total": 5},
+     "took": 5, "timed_out": False
+     }
+}
+
+
 class FakeSearchv1Client(object):
     def __init__(self, **kwargs):
         self.http_client = mock.Mock()
@@ -44,6 +61,8 @@ class FakeSearchv1Client(object):
         self.resource_types.list = mock.Mock(return_value=[])
         self.facets = mock.Mock()
         self.facets.list = mock.Mock(return_value=[])
+        self.search = mock.Mock()
+        self.search.search = mock.Mock(return_value=[])
 
 
 class TestSearchv1(utils.TestCommand):
