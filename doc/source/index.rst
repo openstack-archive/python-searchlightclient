@@ -21,7 +21,7 @@ on `Launchpad`_. Submit code to the openstack/python-searchlightclient project
 using `Gerrit`_.
 
 .. _git.openstack.org: https://git.openstack.org/cgit/openstack/python-searchlightclient
-.. _Launchpad: https://launchpad.net/searchlight
+.. _Launchpad: https://launchpad.net/python-searchlightclient
 .. _Gerrit: http://docs.openstack.org/infra/manual/developers.html#development-workflow
 
 Testing

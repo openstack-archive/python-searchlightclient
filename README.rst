@@ -13,7 +13,7 @@ hosted on `Github`_. Patches must be submitted using `Gerrit`_, *not* Github
 pull requests.
 
 .. _Github: https://github.com/openstack/python-searchlightclient
-.. _Launchpad: https://launchpad.net/searchlight
+.. _Launchpad: https://launchpad.net/python-searchlightclient
 .. _Gerrit: http://docs.openstack.org/infra/manual/developers.html#development-workflow
 
 python-searchlightclient is licensed under the Apache License like the rest of
@@ -42,7 +42,7 @@ To use with keystone as the authentication system::
 * License: Apache License, Version 2.0
 * Documentation: http://docs.openstack.org/developer/python-searchlightclient
 * Source: http://git.openstack.org/cgit/openstack/python-searchlightclient
-* Bugs: http://bugs.launchpad.net/searchlight
+* Bugs: http://bugs.launchpad.net/python-searchlightclient
 
 Testing
 -------
