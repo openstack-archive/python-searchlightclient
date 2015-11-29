@@ -11,6 +11,7 @@
 #    under the License.
 
 from searchlightclient import client
+from searchlightclient.v1 import facets
 from searchlightclient.v1 import resource_types
 
 
@@ -36,3 +37,4 @@ class Client(object):
         self.http_client = client._construct_http_client(*args, **kwargs)
         self.resource_types = resource_types.ResourceTypeManager(
             self.http_client)
+        self.facets = facets.FacetsManager(self.http_client)

@@ -26,6 +26,15 @@ ResourceType = {
 }
 
 
+Facet = {
+    "OS::Nova::Server":
+    [
+        {"type": "string", "name": "id"},
+        {"type": "date", "name": "created_at"},
+    ],
+}
+
+
 class FakeSearchv1Client(object):
     def __init__(self, **kwargs):
         self.http_client = mock.Mock()
@@ -33,6 +42,8 @@ class FakeSearchv1Client(object):
         self.http_client.management_url = kwargs['endpoint']
         self.resource_types = mock.Mock()
         self.resource_types.list = mock.Mock(return_value=[])
+        self.facets = mock.Mock()
+        self.facets.list = mock.Mock(return_value=[])
 
 
 class TestSearchv1(utils.TestCommand):
