@@ -34,7 +34,8 @@ To use with keystone as the authentication system::
     >>> from keystoneclient import session
     >>> from searchlightclient import client
     >>> auth = generic.Password(auth_url=OS_AUTH_URL, username=OS_USERNAME, password=OS_PASSWORD, tenant_name=OS_TENANT_NAME)
-    >>> sc = client.Client('1', session=auth)
+    >>> keystone_session = session.Session(auth=auth)
+    >>> sc = client.Client('1', session=keystone_session)
     >>> sc.resource_types.list()
     [...]
 
