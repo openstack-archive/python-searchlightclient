@@ -39,8 +39,12 @@ class TestSearchResource(TestSearch):
         parsed_args = self.check_parser(self.cmd, arglist, [])
         columns, data = self.cmd.take_action(parsed_args)
         details = False
-        if assertArgs.get('source'):
-            details = assertArgs.pop('source')
+        if assertArgs.get("source"):
+            details = True
+            if assertArgs.get("source") == "all_resources":
+                assertArgs.pop("source")
+            else:
+                assertArgs["_source"] = assertArgs.pop("source")
         self.search_client.search.assert_called_with(**assertArgs)
 
         if details:
@@ -88,4 +92,10 @@ class TestSearchResource(TestSearch):
     def test_list_source(self):
         self._test_search(["name: fake", "--source"],
                           query={"query_string": {"query": "name: fake"}},
-                          all_projects=False, source=True, type=None)
+                          all_projects=False, source="all_resources",
+                          type=None)
+
+    def test_list_optional_source(self):
+        self._test_search(["name: fake", "--source", "f1,f2"],
+                          query={"query_string": {"query": "name: fake"}},
+                          all_projects=False, source=["f1", "f2"], type=None)
