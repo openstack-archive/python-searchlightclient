@@ -32,13 +32,16 @@ def make_client(instance):
         instance._api_version[API_NAME],
         API_VERSIONS)
 
+    # Set client http_log_debug to True if verbosity level is high enough
+    http_log_debug = utils.get_effective_log_level() <= logging.DEBUG
+
+    # Remember interface only if it is set
+    kwargs = utils.build_kwargs_dict('endpoint_type', instance._interface)
     client = search_client(
-        endpoint=instance.get_endpoint_for_service_type('search'),
         session=instance.session,
-        auth_url=instance._auth_url,
-        username=instance._username,
-        password=instance._password,
+        http_log_debug=http_log_debug,
         region_name=instance._region_name,
+        **kwargs
     )
 
     return client
