@@ -51,9 +51,11 @@ class TestSearchResource(TestSearch):
             collist = ("ID", "Score", "Type", "Source")
             datalist = (
                 ('1', 0.3, 'OS::Glance::Image',
-                 {'name': 'image1', 'updated_at': '2016-01-01T00:00:00Z'}),
+                 {'id': '1', 'name': 'image1',
+                  'updated_at': '2016-01-01T00:00:00Z'}),
                 ('2', 0.3, 'OS::Nova::Server',
-                 {'name': 'instance1', 'updated_at': '2016-01-01T00:00:00Z'}))
+                 {'id': '2', 'name': 'instance1',
+                  'updated_at': '2016-01-01T00:00:00Z'}))
         else:
             collist = ("ID", "Name", "Score", "Type", "Updated")
             datalist = (('1', 'image1', 0.3, 'OS::Glance::Image',
@@ -67,27 +69,27 @@ class TestSearchResource(TestSearch):
     def test_search(self):
         self._test_search(["name: fake"],
                           query={"query_string": {"query": "name: fake"}},
-                          _source=['name', 'updated_at'],
+                          _source=['id', 'name', 'updated_at'],
                           all_projects=False, type=None)
 
     def test_search_resource(self):
         self._test_search(["name: fake", "--type", "res1", "res2"],
                           query={"query_string": {"query": "name: fake"}},
-                          _source=['name', 'updated_at'],
+                          _source=['id', 'name', 'updated_at'],
                           type=["res1", "res2"],
                           all_projects=False)
 
     def test_search_query_string(self):
         self._test_search(["name: fake"],
                           query={"query_string": {"query": "name: fake"}},
-                          _source=['name', 'updated_at'],
+                          _source=['id', 'name', 'updated_at'],
                           all_projects=False, type=None)
 
     def test_search_query_dsl(self):
         self._test_search(['--json',
                            '{"term": {"status": "active"}}'],
                           query={'term': {'status': 'active'}},
-                          _source=['name', 'updated_at'],
+                          _source=['id', 'name', 'updated_at'],
                           all_projects=False, type=None)
 
     def test_search_query_dsl_no_json_flag(self):
@@ -95,13 +97,13 @@ class TestSearchResource(TestSearch):
             SystemExit, self._test_search,
             ['{"term": {"status": "active"}}'],
             query={'term': {'status': 'active'}},
-            _source=['name', 'updated_at'],
+            _source=['id', 'name', 'updated_at'],
             all_projects=False, type=None)
 
     def test_list_all_projects(self):
         self._test_search(["name: fake", "--all-projects"],
                           query={"query_string": {"query": "name: fake"}},
-                          _source=['name', 'updated_at'],
+                          _source=['id', 'name', 'updated_at'],
                           all_projects=True, type=None)
 
     def test_list_source(self):
@@ -113,4 +115,5 @@ class TestSearchResource(TestSearch):
     def test_list_optional_source(self):
         self._test_search(["name: fake", "--source", "f1,f2"],
                           query={"query_string": {"query": "name: fake"}},
-                          all_projects=False, source=["f1", "f2"], type=None)
+                          all_projects=False, source=["id", "f1", "f2"],
+                          type=None)

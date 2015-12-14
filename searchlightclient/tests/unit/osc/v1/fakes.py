@@ -40,10 +40,10 @@ Resource = {
     {"hits":
         [
             {"_score": 0.3, "_type": "OS::Glance::Image", "_id": "1",
-             "_source": {"name": "image1",
+             "_source": {"id": "1", "name": "image1",
                          "updated_at": "2016-01-01T00:00:00Z"}},
-            {"_score": 0.3, "_type": "OS::Nova::Server", "_id": "2",
-             "_source": {"name": "instance1",
+            {"_score": 0.3, "_type": "OS::Nova::Server", "_id": "2_ADMIN",
+             "_source": {"id": "2", "name": "instance1",
                          "updated_at": "2016-01-01T00:00:00Z"}},
         ],
      "_shards": {"successful": 5, "failed": 0, "total": 5},

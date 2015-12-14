@@ -88,11 +88,12 @@ class SearchResource(lister.Lister):
         if source:
             columns = ("ID", "Score", "Type", "Source")
             if source != "all_sources":
-                params["_source"] = source.split(",")
+                params["_source"] = (["id"] +
+                    [s for s in source.split(",") if s != 'id'])
         else:
             columns = ("ID", "Name", "Score", "Type", "Updated")
             # Only return the required fields when source not specified.
-            params["_source"] = ["name", "updated_at"]
+            params["_source"] = ["id", "name", "updated_at"]
 
         if parsed_args.query:
             if parsed_args.json:
@@ -111,6 +112,9 @@ class SearchResource(lister.Lister):
         result = []
         for r in data.hits['hits']:
             converted = {}
+            # hit._id may include extra information appended after _,
+            # so use r['_source']['id'] for safe.
+            r['_id'] = r.get('_source', {}).get('id')
             for k, v in six.iteritems(r):
                 converted[mapping[k]] = v
                 if k == "_source" and not parsed_args.source:
