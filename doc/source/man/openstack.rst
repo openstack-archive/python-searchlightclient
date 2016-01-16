@@ -2,6 +2,6 @@
 openstack
 =========
 
-Please refer to Openstack command-line interface `OpenstackClient`_.
+Please refer to OpenStack command-line interface `OpenStackClient`_.
 
-.. _OpenstackClient: http://docs.openstack.org/cli-reference/content/openstackclient_commands.html
+.. _OpenStackClient: http://docs.openstack.org/cli-reference/openstack.html
