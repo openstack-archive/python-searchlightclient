@@ -13,6 +13,7 @@
 from searchlightclient import client
 from searchlightclient.v1 import facets
 from searchlightclient.v1 import resource_types
+from searchlightclient.v1 import search
 
 
 class Client(object):
@@ -38,3 +39,4 @@ class Client(object):
         self.resource_types = resource_types.ResourceTypeManager(
             self.http_client)
         self.facets = facets.FacetsManager(self.http_client)
+        self.search = search.SearchManager(self.http_client)
