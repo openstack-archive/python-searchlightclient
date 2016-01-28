@@ -53,10 +53,15 @@ class SearchResource(lister.Lister):
         )
         parser.add_argument(
             "--source",
-            action='store_true',
-            default=False,
-            help="Whether to display the source details, defaults to false. "
-                 "You can specify --max-width to make the output look better."
+            nargs='?',
+            const='all_sources',
+            metavar="[<field>,...]",
+            help="Whether to display the json source. If not specified, "
+                 "it will not be displayed. If specified with no argument, "
+                 "the full source will be displayed. Otherwise, specify the "
+                 "fields combined with ',' to return the fields you want."
+                 "It is recommended that you use the --max-width argument "
+                 "with this option."
         )
         return parser
 
@@ -72,8 +77,11 @@ class SearchResource(lister.Lister):
             "type": parsed_args.type,
             "all_projects": parsed_args.all_projects
         }
-        if parsed_args.source:
+        source = parsed_args.source
+        if source:
             columns = ("ID", "Score", "Type", "Source")
+            if source != "all_sources":
+                params["_source"] = source.split(",")
         else:
             columns = ("ID", "Name", "Score", "Type", "Updated")
             # Only return the required fields when source not specified.
