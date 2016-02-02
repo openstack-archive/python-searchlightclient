@@ -65,7 +65,6 @@ class SearchResource(lister.Lister):
         )
         return parser
 
-    @utils.log_method(log)
     def take_action(self, parsed_args):
         self.log.debug("take_action(%s)", parsed_args)
 

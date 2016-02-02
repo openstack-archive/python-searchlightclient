@@ -24,7 +24,6 @@ class ListResourceType(lister.Lister):
 
     log = logging.getLogger(__name__ + ".ListResourceType")
 
-    @utils.log_method(log)
     def take_action(self, parsed_args):
         self.log.debug("take_action(%s)", parsed_args)
 
