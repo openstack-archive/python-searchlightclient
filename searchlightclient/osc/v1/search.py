@@ -13,6 +13,7 @@
 
 """Searchlight v1 Search action implementations"""
 
+import json
 import logging
 import six
 
@@ -30,11 +31,18 @@ class SearchResource(lister.Lister):
         parser.add_argument(
             "query",
             metavar="<query>",
-            help="Query resources by Elasticsearch query string "
-                 "(NOTE: json format DSL is not supported yet). "
-                 "Example: 'name: cirros AND updated_at: [now-1y TO now]'. "
+            help="Query resources by Elasticsearch query string or json "
+                 "format DSL. Query string example: 'name: cirros AND "
+                 "updated_at: [now-1y TO now]'. DSL example: "
+                 "'{\"term\": {\"name\": \"cirros\"}}'. "
                  "See Elasticsearch DSL or Searchlight documentation for "
                  "more detail."
+        )
+        parser.add_argument(
+            "--json",
+            action='store_true',
+            default=False,
+            help="Treat the query argument as a JSON formatted DSL query."
         )
         parser.add_argument(
             "--type",
@@ -59,7 +67,7 @@ class SearchResource(lister.Lister):
             help="Whether to display the json source. If not specified, "
                  "it will not be displayed. If specified with no argument, "
                  "the full source will be displayed. Otherwise, specify the "
-                 "fields combined with ',' to return the fields you want."
+                 "fields combined with ',' to return the fields you want. "
                  "It is recommended that you use the --max-width argument "
                  "with this option."
         )
@@ -86,9 +94,17 @@ class SearchResource(lister.Lister):
             # Only return the required fields when source not specified.
             params["_source"] = ["name", "updated_at"]
 
-        # TODO(lyj): json should be supported for query
         if parsed_args.query:
-            query = {"query_string": {"query": parsed_args.query}}
+            if parsed_args.json:
+                query = json.loads(parsed_args.query)
+            else:
+                try:
+                    json.loads(parsed_args.query)
+                    print("You should use the --json flag when specifying "
+                          "a JSON object.")
+                    exit(1)
+                except Exception:
+                    query = {"query_string": {"query": parsed_args.query}}
             params['query'] = query
 
         data = search_client.search.search(**params)

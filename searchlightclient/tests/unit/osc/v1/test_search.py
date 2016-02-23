@@ -77,11 +77,26 @@ class TestSearchResource(TestSearch):
                           type=["res1", "res2"],
                           all_projects=False)
 
-    def test_search_query_only(self):
+    def test_search_query_string(self):
         self._test_search(["name: fake"],
                           query={"query_string": {"query": "name: fake"}},
                           _source=['name', 'updated_at'],
                           all_projects=False, type=None)
+
+    def test_search_query_dsl(self):
+        self._test_search(['--json',
+                           '{"term": {"status": "active"}}'],
+                          query={'term': {'status': 'active'}},
+                          _source=['name', 'updated_at'],
+                          all_projects=False, type=None)
+
+    def test_search_query_dsl_no_json_flag(self):
+        self.assertRaises(
+            SystemExit, self._test_search,
+            ['{"term": {"status": "active"}}'],
+            query={'term': {'status': 'active'}},
+            _source=['name', 'updated_at'],
+            all_projects=False, type=None)
 
     def test_list_all_projects(self):
         self._test_search(["name: fake", "--all-projects"],
