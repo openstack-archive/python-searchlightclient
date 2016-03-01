@@ -105,7 +105,9 @@ class SearchResource(lister.Lister):
                           "a JSON object.")
                     exit(1)
                 except Exception:
-                    query = {"query_string": {"query": parsed_args.query}}
+                    qs = self._modify_query_string(parsed_args.query)
+                    query = {"query_string": {"query": qs}}
+
             params['query'] = query
 
         data = search_client.search.search(**params)
@@ -122,3 +124,6 @@ class SearchResource(lister.Lister):
                     converted["updated"] = v.get("updated_at")
             result.append(utils.get_dict_properties(converted, columns))
         return (columns, result)
+
+    def _modify_query_string(self, query_string):
+        return query_string.replace('/', '\/')

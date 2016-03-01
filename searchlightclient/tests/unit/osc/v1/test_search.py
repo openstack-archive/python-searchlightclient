@@ -85,6 +85,21 @@ class TestSearchResource(TestSearch):
                           _source=['id', 'name', 'updated_at'],
                           all_projects=False, type=None)
 
+    def test_search_regexp_slashes_in_query_string(self):
+        """Escape slashes in querystrings so not to be treated as regexp"""
+        self._test_search(["this/has/some/slashes"],
+            query={"query_string": {"query": "this\/has\/some\/slashes"}},
+            _source=['id', 'name', 'updated_at'],
+            all_projects=False, type=None)
+
+    def test_search_regexp_slashes_in_query(self):
+        """Don't escape slashes in DSL queries"""
+        self._test_search(['--json',
+                           '{"term": {"name": "this/has/some/slashes"}}'],
+            query={"term": {"name": "this/has/some/slashes"}},
+            _source=['id', 'name', 'updated_at'],
+            all_projects=False, type=None)
+
     def test_search_query_dsl(self):
         self._test_search(['--json',
                            '{"term": {"status": "active"}}'],
