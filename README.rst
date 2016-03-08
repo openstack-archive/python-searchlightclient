@@ -22,10 +22,21 @@ OpenStack.
 .. contents:: Contents:
    :local:
 
-Command-line API
-----------------
+Install the client from PyPI
+----------------------------
+The :program:`python-searchlightclient` package is published on `PyPI`_ and
+so can be installed using the pip tool, which will manage installing all
+python dependencies::
 
-To execute CLI commands to standalone searchlight set with keystone.
+   $ pip install python-searchlightclient
+
+.. note::
+   The packages on PyPI may lag behind the git repo in functionality.
+
+.. _PyPI: https://pypi.python.org/pypi/python-searchlightclient/
+
+Setup the client from source
+----------------------------
 
 * Clone repository for python-searchlightclient::
 
@@ -57,6 +68,11 @@ All further commands in this section should be run with the venv active:
 
     (venv) $ python setup.py develop
 
+Command-line API
+----------------
+
+Set Keystone environment variables to execute CLI commands against searchlight.
+
 * To execute CLI commands::
 
     $ export OS_USERNAME=<user>
@@ -65,12 +81,17 @@ All further commands in this section should be run with the venv active:
     $ export OS_AUTH_URL='http://localhost:5000/v2.0/'
 
 .. note::
-   With devstack you just need to $ source openrc <user> <project>
+   With devstack you just need to $ source openrc <user> <project>. And you can
+   work with a local installation by passing --os-token <TOKEN> and --os-url
+   http://localhost:9393. You can also set up a `Openstackclient`_ config file
+   to work with the CLI.
+
+.. _Openstackclient: http://docs.openstack.org/developer/python-openstackclient/configuration.html#clouds-yaml
 
 ::
 
     $ openstack
-    (openstack) search resource-type list
+    (openstack) search resource type list
     +--------------------------+--------------------------+
     | Name                     | Type                     |
     +--------------------------+--------------------------+
@@ -80,6 +101,16 @@ All further commands in this section should be run with the venv active:
     | OS::Glance::Metadef      | OS::Glance::Metadef      |
     | OS::Nova::Server         | OS::Nova::Server         |
     +--------------------------+--------------------------+
+
+Here are the full list of subcommands, Use -h to see options:
+
+    ============================= =======================================
+    Subcommand                    Description
+    ============================= =======================================
+    search facet list             List Searchlight Facet
+    search resource type list     List Searchlight Resource Type (Plugin)
+    search query                  Search Searchlight resource
+    ============================= =======================================
 
 Python API
 ----------
