@@ -26,12 +26,26 @@ ResourceType = {
 }
 
 
-Facet = {
+OldFacet = {
     "OS::Nova::Server":
     [
         {"type": "string", "name": "id"},
         {"type": "date", "name": "created_at"},
     ],
+}
+
+
+# The alternate facet format introduced in
+# https://blueprints.launchpad.net/searchlight/+spec/count-endpoint
+Facet = {
+    "OS::Nova::Server":
+    {
+        "doc_count": 2,
+        "facets": [
+            {"type": "string", "name": "id"},
+            {"type": "date", "name": "created_at"},
+        ]
+    }
 }
 
 
