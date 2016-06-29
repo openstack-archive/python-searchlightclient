@@ -15,11 +15,11 @@
 
 import logging
 
-from cliff import lister
+from osc_lib.command import command
 from osc_lib import utils
 
 
-class ListResourceType(lister.Lister):
+class ListResourceType(command.Lister):
     """List Searchlight Resource Type (Plugin)."""
 
     log = logging.getLogger(__name__ + ".ListResourceType")

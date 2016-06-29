@@ -70,7 +70,7 @@ class TestCase(testtools.TestCase):
 
 
 class TestCommand(TestCase):
-    """Test cliff command classes"""
+    """Test osc_lib command classes"""
 
     def setUp(self):
         super(TestCommand, self).setUp()

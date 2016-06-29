@@ -16,11 +16,11 @@
 import logging
 import six
 
-from cliff import lister
+from osc_lib.command import command
 from osc_lib import utils
 
 
-class ListFacet(lister.Lister):
+class ListFacet(command.Lister):
     """List Searchlight Facet."""
 
     log = logging.getLogger(__name__ + ".ListFacet")

@@ -17,11 +17,11 @@ import json
 import logging
 import six
 
-from cliff import lister
+from osc_lib.command import command
 from osc_lib import utils
 
 
-class SearchResource(lister.Lister):
+class SearchResource(command.Lister):
     """Search Searchlight resource."""
 
     log = logging.getLogger(__name__ + ".SearchResource")
