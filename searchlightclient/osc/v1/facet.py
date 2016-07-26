@@ -64,7 +64,12 @@ class ListFacet(command.Lister):
         data = search_client.facets.list(**params)
         result = []
         for resource_type, values in six.iteritems(data):
-            for s in values:
+            if isinstance(values, list):
+                # Cope with pre-1.0 service APIs
+                facets = values
+            else:
+                facets = values['facets']
+            for s in facets:
                 options = []
                 for o in s.get('options', []):
                     options.append(

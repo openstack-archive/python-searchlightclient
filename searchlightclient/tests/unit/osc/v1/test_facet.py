@@ -21,10 +21,9 @@ class TestFacet(searchlight_fakes.TestSearchv1):
         self.facet_client = self.app.client_manager.search.facets
 
 
-class TestFacetList(TestFacet):
-
+class TestFacetListBase(TestFacet):
     def setUp(self):
-        super(TestFacetList, self).setUp()
+        super(TestFacetListBase, self).setUp()
         self.cmd = facet.ListFacet(self.app, None)
         self.facet_client.list.return_value = searchlight_fakes.Facet
 
@@ -42,6 +41,8 @@ class TestFacetList(TestFacet):
         )
         self.assertEqual(datalist, tuple(data))
 
+
+class TestFacetList(TestFacetListBase):
     def test_list(self):
         self._test_list([], all_projects=False, limit_terms=None, type=None)
 
@@ -58,3 +59,12 @@ class TestFacetList(TestFacet):
         self._test_list(['--limit-terms', 'fake_limit'],
                         all_projects=False,
                         limit_terms='fake_limit', type=None)
+
+
+class TestOldFacetList(TestFacetListBase):
+    def setUp(self):
+        super(TestOldFacetList, self).setUp()
+        self.facet_client.list.return_value = searchlight_fakes.OldFacet
+
+    def test_list(self):
+        self._test_list([], all_projects=False, limit_terms=None, type=None)

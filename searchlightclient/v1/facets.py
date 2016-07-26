@@ -37,7 +37,8 @@ class FacetsManager(base.BaseManager):
                             that support facet terms.
         :param type: Request facets for a particular type by adding a type
                      query parameter.
-        :rtype: list of :class:`Facets`
+        :rtype: dict of {resource_type: {'facets': [:class:`Facets`],
+                                         'doc_count':, :class:int}}
         """
         params = {}
         if kwargs.get('index'):
