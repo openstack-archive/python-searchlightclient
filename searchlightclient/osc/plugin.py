@@ -15,8 +15,6 @@ import logging
 
 from osc_lib import utils
 
-LOG = logging.getLogger(__name__)
-
 DEFAULT_SEARCH_API_VERSION = '1'
 API_VERSION_OPTION = 'os_search_api_version'
 API_NAME = 'search'
