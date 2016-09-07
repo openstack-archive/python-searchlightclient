@@ -114,14 +114,21 @@ class SearchResource(command.Lister):
         result = []
         for r in data.hits['hits']:
             converted = {}
+            extra = {}
             # hit._id may include extra information appended after _,
             # so use r['_source']['id'] for safe.
             r['_id'] = r.get('_source', {}).get('id')
             for k, v in six.iteritems(r):
-                converted[mapping[k]] = v
-                if k == "_source" and not parsed_args.source:
-                    converted["name"] = v.get("name")
-                    converted["updated"] = v.get("updated_at")
+                map_key = mapping.get(k)
+                if map_key is not None:
+                    converted[map_key] = v
+                    if k == "_source" and not parsed_args.source:
+                        converted["name"] = v.get("name")
+                        converted["updated"] = v.get("updated_at")
+                else:
+                    extra[k] = v
+            if extra:
+                self.log.debug("extra info returned: %s", extra)
             result.append(utils.get_dict_properties(converted, columns))
         return (columns, result)
 

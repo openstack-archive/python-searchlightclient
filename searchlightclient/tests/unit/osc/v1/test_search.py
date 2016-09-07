@@ -29,11 +29,10 @@ class TestSearchResource(TestSearch):
     def setUp(self):
         super(TestSearchResource, self).setUp()
         self.cmd = search.SearchResource(self.app, None)
+        fake_data = copy.deepcopy(searchlight_fakes.Resource)
+        fake_data['hits']['hits'][0]['is_not_processed'] = 'foo'
         self.search_client.search.return_value = \
-            fakes.FakeResource(
-                None,
-                copy.deepcopy(searchlight_fakes.Resource),
-                loaded=True)
+            fakes.FakeResource(None, fake_data, loaded=True)
 
     def _test_search(self, arglist, **assertArgs):
         parsed_args = self.check_parser(self.cmd, arglist, [])
