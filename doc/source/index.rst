@@ -5,14 +5,6 @@ This is a client for OpenStack Searchlight API. There's a Python API
 (the :mod:`searchlightclient` module), and a command-line script
 (installed as :program:`openstack`).
 
-Reference
----------
-
-.. toctree::
-   :maxdepth: 1
-
-   index
-
 Contributing
 ============
 
