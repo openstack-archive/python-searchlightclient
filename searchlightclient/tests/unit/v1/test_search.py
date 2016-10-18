@@ -21,7 +21,7 @@ class SearchManagerTest(testtools.TestCase):
     def setUp(self):
         super(SearchManagerTest, self).setUp()
         self.manager = search.SearchManager(None)
-        self.manager._post = mock.MagicMock()
+        self.manager._post = mock.Mock()
 
     def test_search_with_query(self):
         query_string = {

@@ -21,7 +21,7 @@ class FacetsManagerTest(testtools.TestCase):
     def setUp(self):
         super(FacetsManagerTest, self).setUp()
         self.manager = facets.FacetsManager(None)
-        self.manager.client = mock.MagicMock()
+        self.manager.client = mock.Mock()
 
     def test_list_all_projects(self):
         self.manager.list(all_projects=True)

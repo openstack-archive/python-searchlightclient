@@ -20,6 +20,6 @@ class ResourceTypeManagerTest(testtools.TestCase):
 
     def test_list(self):
         manager = resource_types.ResourceTypeManager(None)
-        manager._list = mock.MagicMock()
+        manager._list = mock.Mock()
         manager.list()
         manager._list.assert_called_once_with('/v1/search/plugins', 'plugins')
