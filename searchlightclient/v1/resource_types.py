@@ -10,7 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from searchlightclient.openstack.common.apiclient import base
+from searchlightclient.common import base
 
 
 class ResourceType(base.Resource):

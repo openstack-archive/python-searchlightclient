@@ -38,7 +38,7 @@ import sys
 
 import six
 
-from searchlightclient.openstack.common._i18n import _
+from searchlightclient.i18n import _
 
 
 class ClientException(Exception):

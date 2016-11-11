@@ -12,7 +12,7 @@
 
 from six.moves.urllib import parse
 
-from searchlightclient.openstack.common.apiclient import base
+from searchlightclient.common import base
 
 
 class Facets(base.Resource):

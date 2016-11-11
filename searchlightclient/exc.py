@@ -14,7 +14,7 @@ import sys
 
 from oslo_serialization import jsonutils
 
-from searchlightclient.openstack.common._i18n import _
+from searchlightclient.i18n import _
 
 verbose = 0
 

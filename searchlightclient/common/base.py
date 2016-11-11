@@ -44,8 +44,8 @@ from oslo_utils import strutils
 import six
 from six.moves.urllib import parse
 
-from searchlightclient.openstack.common._i18n import _
-from searchlightclient.openstack.common.apiclient import exceptions
+from searchlightclient.common import exceptions
+from searchlightclient.i18n import _
 
 
 def getid(obj):

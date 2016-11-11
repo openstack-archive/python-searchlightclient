@@ -30,9 +30,9 @@ from six.moves.urllib import request
 import yaml
 
 from searchlightclient import exc
-from searchlightclient.openstack.common._i18n import _
-from searchlightclient.openstack.common._i18n import _LE
-from searchlightclient.openstack.common import cliutils
+from searchlightclient.i18n import _
+from searchlightclient.i18n import _LE
+
 
 LOG = logging.getLogger(__name__)
 
@@ -42,10 +42,17 @@ supported_formats = {
     "yaml": yaml.safe_dump
 }
 
-# Using common methods from oslo cliutils
-arg = cliutils.arg
-env = cliutils.env
-print_list = cliutils.print_list
+
+def env(*args, **kwargs):
+    """Returns the first environment variable set.
+
+    If all are empty, defaults to '' or keyword arg `default`.
+    """
+    for arg in args:
+        value = os.environ.get(arg)
+        if value:
+            return value
+    return kwargs.get('default', '')
 
 
 def link_formatter(links):

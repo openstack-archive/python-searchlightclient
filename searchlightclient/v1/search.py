@@ -12,7 +12,7 @@
 
 import six
 
-from searchlightclient.openstack.common.apiclient import base
+from searchlightclient.common import base
 
 
 class Search(base.Resource):
