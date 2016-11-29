@@ -15,7 +15,6 @@
 
 import json
 import logging
-import six
 
 from osc_lib.command import command
 from osc_lib import utils
@@ -118,7 +117,7 @@ class SearchResource(command.Lister):
             # hit._id may include extra information appended after _,
             # so use r['_source']['id'] for safe.
             r['_id'] = r.get('_source', {}).get('id')
-            for k, v in six.iteritems(r):
+            for k, v in r.items():
                 map_key = mapping.get(k)
                 if map_key is not None:
                     converted[map_key] = v

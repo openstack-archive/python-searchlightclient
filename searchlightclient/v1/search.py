@@ -10,8 +10,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import six
-
 from searchlightclient.common import base
 
 
@@ -43,7 +41,7 @@ class SearchManager(base.BaseManager):
                              current project unless all_projects is set
         """
         search_params = {}
-        for k, v in six.iteritems(kwargs):
+        for k, v in kwargs.items():
             if k in ('query', 'type', 'offset',
                      'limit', 'sort', '_source', 'highlight', 'all_projects'):
                 search_params[k] = v
