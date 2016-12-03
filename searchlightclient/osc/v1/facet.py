@@ -14,7 +14,6 @@
 """Searchlight v1 Facet action implementations"""
 
 import logging
-import six
 
 from osc_lib.command import command
 from osc_lib import utils
@@ -63,7 +62,7 @@ class ListFacet(command.Lister):
         }
         data = search_client.facets.list(**params)
         result = []
-        for resource_type, values in six.iteritems(data):
+        for resource_type, values in data.items():
             if isinstance(values, list):
                 # Cope with pre-1.0 service APIs
                 facets = values
