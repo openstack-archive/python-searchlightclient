@@ -32,3 +32,4 @@ Man Page
    :maxdepth: 1
 
    man/openstack
+   man/search
