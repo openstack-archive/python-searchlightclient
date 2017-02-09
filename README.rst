@@ -18,10 +18,11 @@ provides a Python API (the ``searchlightclient`` module) and a command-line
 tool (``searchlight``).
 
 The project is hosted on `Launchpad`_, where bugs can be filed. The code is
-hosted on `Github`_. Patches must be submitted using `Gerrit`_, *not* Github
+hosted on `OpenStack git repository`_. Patches must be submitted using
+`Gerrit`_, *not* git repo
 pull requests.
 
-.. _Github: https://github.com/openstack/python-searchlightclient
+.. _OpenStack git repository: https://git.openstack.org/cgit/openstack/python-searchlightclient
 .. _Launchpad: https://launchpad.net/python-searchlightclient
 .. _Gerrit: http://docs.openstack.org/infra/manual/developers.html#development-workflow
 
@@ -49,7 +50,7 @@ Setup the client from source
 
 * Clone repository for python-searchlightclient::
 
-    $ git clone https://github.com/openstack/python-searchlightclient.git
+    $ git clone https://git.openstack.org/openstack/python-searchlightclient.git
     $ cd python-searchlightclient
 
 * Setup a virtualenv
