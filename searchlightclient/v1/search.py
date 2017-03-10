@@ -39,6 +39,7 @@ class SearchManager(base.BaseManager):
         :param highlight: add an Elasticsearch highlight clause
         :param all_projects: by default searches are restricted to the
                              current project unless all_projects is set
+        :param simplified: return only _source data
         """
         search_params = {}
         for k, v in kwargs.items():
@@ -46,4 +47,12 @@ class SearchManager(base.BaseManager):
                      'limit', 'sort', '_source', 'highlight', 'all_projects'):
                 search_params[k] = v
         resources = self._post('/v1/search', search_params)
+
+        # NOTE: This could be done at the server side to reduce data
+        # transfer, since the data have been wrapped several times
+        # before transfer, and the data overhead is pretty small comparing
+        # to the data payload('_source'), it is done here for simplicity.
+        if 'simplified' in kwargs.keys() and kwargs['simplified']:
+            resources = [h['_source'] for h in resources.hits['hits']]
+
         return resources
