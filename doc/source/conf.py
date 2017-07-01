@@ -9,10 +9,7 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
-# python-searchlightclient documentation build configuration file, created by
-# sphinx-quickstart on Sun Dec  6 14:19:25 2009.
-#
+
 # This file is execfile()d with the current directory set to its containing
 # dir.
 #
@@ -32,7 +29,7 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'oslosphinx']
+extensions = ['sphinx.ext.autodoc', 'openstackdocstheme']
 
 autoclass_content = 'both'
 
@@ -51,6 +48,11 @@ master_doc = 'index'
 # General information about the project.
 project = 'python-searchlightclient'
 copyright = 'OpenStack Contributors'
+
+# openstackdocstheme options
+repository_name = 'openstack/python-searchlightclient'
+bug_project = 'python-searchlightclient'
+bug_tag = ''
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -111,7 +113,7 @@ man_pages = [
 
 # The theme to use for HTML and HTML Help pages.  Major themes that come with
 # Sphinx are currently 'default' and 'sphinxdoc'.
-html_theme = 'default'
+html_theme = 'openstackdocs'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -144,7 +146,7 @@ html_theme = 'default'
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
-#html_last_updated_fmt = '%b %d, %Y'
+html_last_updated_fmt = '%Y-%m-%d %H:%M'
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
