@@ -42,8 +42,10 @@ class TestResourceTypeList(TestResourceType):
         columns, data = self.cmd.take_action(parsed_args)
         self.rtype_client.list.assert_called_with()
 
-        collist = ('Name', 'Type')
+        collist = ('Alias Searching', 'Alias Indexing', 'Type')
         self.assertEqual(collist, columns)
 
-        datalist = (('OS::Nova::Server', 'OS::Nova::Server'),)
+        datalist = (('searchlight-search',
+                     'searchlight-listener',
+                     'OS::Nova::Server'),)
         self.assertEqual(datalist, tuple(data))

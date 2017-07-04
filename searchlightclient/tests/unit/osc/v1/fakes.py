@@ -20,9 +20,9 @@ from searchlightclient.tests.unit.osc import utils
 
 
 ResourceType = {
-    "index": "searchlight",
-    "type": "OS::Nova::Server",
-    "name": "OS::Nova::Server"
+    "alias-searching": "searchlight-search",
+    "alias-indexing": "searchlight-listener",
+    "type": "OS::Nova::Server"
 }
 
 
