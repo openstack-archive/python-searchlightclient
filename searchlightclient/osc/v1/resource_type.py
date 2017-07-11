@@ -16,7 +16,6 @@
 import logging
 
 from osc_lib.command import command
-from osc_lib import utils
 
 
 class ListResourceType(command.Lister):
@@ -29,11 +28,22 @@ class ListResourceType(command.Lister):
 
         search_client = self.app.client_manager.search
         columns = (
-            "Name",
+            "Alias Searching",
+            "Alias Indexing",
             "Type"
         )
         data = search_client.resource_types.list()
         return (columns,
-                (utils.get_item_properties(
+                (self.get_item_properties(
                     s, columns,
                 ) for s in data))
+
+    def get_item_properties(self, item, fields):
+        # osc_lib.utils.get_item_properties doesn't work because
+        # the field names are using "-" instead of "_".
+        row = []
+        for field in fields:
+            field_name = field.lower().replace(' ', '-')
+            data = getattr(item, field_name, '')
+            row.append(data)
+        return tuple(row)
