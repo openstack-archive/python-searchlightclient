@@ -2,8 +2,8 @@
 Team and repository tags
 ========================
 
-.. image:: http://governance.openstack.org/badges/python-searchlightclient.svg
-    :target: http://governance.openstack.org/reference/tags/index.html
+.. image:: https://governance.openstack.org/badges/python-searchlightclient.svg
+    :target: https://governance.openstack.org/reference/tags/index.html
 
 .. Change things from this point on
 
@@ -24,7 +24,7 @@ pull requests.
 
 .. _OpenStack git repository: https://git.openstack.org/cgit/openstack/python-searchlightclient
 .. _Launchpad: https://launchpad.net/python-searchlightclient
-.. _Gerrit: http://docs.openstack.org/infra/manual/developers.html#development-workflow
+.. _Gerrit: https://docs.openstack.org/infra/manual/developers.html#development-workflow
 
 python-searchlightclient is licensed under the Apache License like the rest of
 OpenStack.
@@ -96,7 +96,7 @@ Set Keystone environment variables to execute CLI commands against searchlight.
    http://localhost:9393. You can also set up a `Openstackclient`_ config file
    to work with the CLI.
 
-.. _Openstackclient: http://docs.openstack.org/developer/python-openstackclient/configuration.html#clouds-yaml
+.. _Openstackclient: https://docs.openstack.org/developer/python-openstackclient/configuration.html#clouds-yaml
 
 ::
 
@@ -138,9 +138,9 @@ To use with keystone as the authentication system::
 
 
 * License: Apache License, Version 2.0
-* Documentation: http://docs.openstack.org/developer/python-searchlightclient
-* Source: http://git.openstack.org/cgit/openstack/python-searchlightclient
-* Bugs: http://bugs.launchpad.net/python-searchlightclient
+* Documentation: https://docs.openstack.org/developer/python-searchlightclient
+* Source: https://git.openstack.org/cgit/openstack/python-searchlightclient
+* Bugs: https://bugs.launchpad.net/python-searchlightclient
 
 Testing
 -------
