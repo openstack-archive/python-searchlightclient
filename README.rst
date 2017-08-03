@@ -2,8 +2,8 @@
 Team and repository tags
 ========================
 
-.. image:: https://governance.openstack.org/badges/python-searchlightclient.svg
-    :target: https://governance.openstack.org/reference/tags/index.html
+.. image:: https://governance.openstack.org/tc/badges/python-searchlightclient.svg
+    :target: https://governance.openstack.org/tc/reference/tags/index.html
 
 .. Change things from this point on
 
@@ -34,7 +34,7 @@ OpenStack.
 
 Install the client from PyPI
 ----------------------------
-The :program:`python-searchlightclient` package is published on `PyPI`_ and
+The program `python-searchlightclient`_ package is published on `PyPI`_ and
 so can be installed using the pip tool, which will manage installing all
 python dependencies::
 
