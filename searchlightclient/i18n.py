@@ -12,7 +12,7 @@
 
 """oslo_i18n integration module for searchlightclient.
 
-See http://docs.openstack.org/developer/oslo.i18n/usage.html .
+See https://docs.openstack.org/oslo.i18n/latest/user/index.html.
 
 """
 
