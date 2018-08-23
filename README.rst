@@ -43,7 +43,7 @@ python dependencies::
 .. note::
    The packages on PyPI may lag behind the git repo in functionality.
 
-.. _PyPI: https://pypi.python.org/pypi/python-searchlightclient/
+.. _PyPI: https://pypi.org/project/python-searchlightclient/
 
 Setup the client from source
 ----------------------------
