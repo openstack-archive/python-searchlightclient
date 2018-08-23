@@ -96,7 +96,7 @@ Set Keystone environment variables to execute CLI commands against searchlight.
    http://localhost:9393. You can also set up a `Openstackclient`_ config file
    to work with the CLI.
 
-.. _Openstackclient: https://docs.openstack.org/developer/python-openstackclient/configuration.html#clouds-yaml
+.. _Openstackclient: https://docs.openstack.org/python-openstackclient/latest/#clouds-yaml
 
 ::
 
@@ -138,7 +138,7 @@ To use with keystone as the authentication system::
 
 
 * License: Apache License, Version 2.0
-* Documentation: https://docs.openstack.org/developer/python-searchlightclient
+* Documentation: https://docs.openstack.org/python-searchlightclient/latest/
 * Source: https://git.openstack.org/cgit/openstack/python-searchlightclient
 * Bugs: https://bugs.launchpad.net/python-searchlightclient
 
