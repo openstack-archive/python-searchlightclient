@@ -17,13 +17,13 @@ This is a client library for Searchlight built on the Searchlight API. It
 provides a Python API (the ``searchlightclient`` module) and a command-line
 tool (``searchlight``).
 
-The project is hosted on `Launchpad`_, where bugs can be filed. The code is
+The project is hosted on `Storyboard`_, where bugs can be filed. The code is
 hosted on `OpenStack git repository`_. Patches must be submitted using
 `Gerrit`_, *not* git repo
 pull requests.
 
 .. _OpenStack git repository: https://git.openstack.org/cgit/openstack/python-searchlightclient
-.. _Launchpad: https://launchpad.net/python-searchlightclient
+.. _Storyboard: https://storyboard.openstack.org/#!/project_group/93
 .. _Gerrit: https://docs.openstack.org/infra/manual/developers.html#development-workflow
 
 python-searchlightclient is licensed under the Apache License like the rest of
@@ -43,7 +43,7 @@ python dependencies::
 .. note::
    The packages on PyPI may lag behind the git repo in functionality.
 
-.. _PyPI: https://pypi.org/project/python-searchlightclient/
+.. _PyPI: https://pypi.python.org/pypi/python-searchlightclient/
 
 Setup the client from source
 ----------------------------
@@ -96,7 +96,7 @@ Set Keystone environment variables to execute CLI commands against searchlight.
    http://localhost:9393. You can also set up a `Openstackclient`_ config file
    to work with the CLI.
 
-.. _Openstackclient: https://docs.openstack.org/python-openstackclient/latest/#clouds-yaml
+.. _Openstackclient: https://docs.openstack.org/developer/python-openstackclient/configuration.html#clouds-yaml
 
 ::
 
@@ -138,9 +138,9 @@ To use with keystone as the authentication system::
 
 
 * License: Apache License, Version 2.0
-* Documentation: https://docs.openstack.org/python-searchlightclient/latest/
+* Documentation: https://docs.openstack.org/developer/python-searchlightclient
 * Source: https://git.openstack.org/cgit/openstack/python-searchlightclient
-* Bugs: https://bugs.launchpad.net/python-searchlightclient
+* Bugs: https://storyboard.openstack.org/#!/project_group/93
 
 Testing
 -------
@@ -148,4 +148,5 @@ Testing
 There are multiple test targets that can be run to validate the code.
 
 * tox -e pep8 - style guidelines enforcement
-* tox -e py27 - traditional unit testing
+* tox -e py27 - traditional unit testing with python 2.7
+* tox -e py35 - traditional unit testing with python 3.5
