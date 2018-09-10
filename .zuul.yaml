@@ -6,9 +6,5 @@
       - publish-openstack-docs-pti
       - check-requirements
       - openstackclient-plugin-jobs
-    check:
-      jobs:
-        - openstack-tox-lower-constraints
-    gate:
-      jobs:
-        - openstack-tox-lower-constraints
+      - openstack-lower-constraints-jobs
+      - publish-to-pypi
