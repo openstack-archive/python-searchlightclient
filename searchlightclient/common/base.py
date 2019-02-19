@@ -460,7 +460,7 @@ class Resource(object):
 
     def __repr__(self):
         reprkeys = sorted(k
-                          for k in self.__dict__.keys()
+                          for k in self.__dict__
                           if k[0] != '_' and k != 'manager')
         info = ", ".join("%s=%s" % (k, getattr(self, k)) for k in reprkeys)
         return "<%s %s>" % (self.__class__.__name__, info)

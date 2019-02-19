@@ -52,7 +52,7 @@ class SearchManager(base.BaseManager):
         # transfer, since the data have been wrapped several times
         # before transfer, and the data overhead is pretty small comparing
         # to the data payload('_source'), it is done here for simplicity.
-        if 'simplified' in kwargs.keys() and kwargs['simplified']:
+        if 'simplified' in kwargs and kwargs['simplified']:
             resources = [h['_source'] for h in resources.hits['hits']]
 
         return resources

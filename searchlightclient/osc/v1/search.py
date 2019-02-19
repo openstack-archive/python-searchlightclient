@@ -13,8 +13,9 @@
 
 """Searchlight v1 Search action implementations"""
 
-import json
 import logging
+
+from oslo_serialization import jsonutils
 
 from osc_lib.command import command
 from osc_lib import utils
@@ -96,10 +97,10 @@ class SearchResource(command.Lister):
 
         if parsed_args.query:
             if parsed_args.json:
-                query = json.loads(parsed_args.query)
+                query = jsonutils.loads(parsed_args.query)
             else:
                 try:
-                    json.loads(parsed_args.query)
+                    jsonutils.loads(parsed_args.query)
                     print("You should use the --json flag when specifying "
                           "a JSON object.")
                     exit(1)

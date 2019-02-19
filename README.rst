@@ -150,3 +150,5 @@ There are multiple test targets that can be run to validate the code.
 * tox -e pep8 - style guidelines enforcement
 * tox -e py27 - traditional unit testing with python 2.7
 * tox -e py35 - traditional unit testing with python 3.5
+* tox -e py36 - traditional unit testing with python 3.6
+* tox -e py37 - traditional unit testing with python 3.7
