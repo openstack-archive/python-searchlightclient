@@ -13,4 +13,4 @@ Pull requests submitted through GitHub will be ignored.
 
 Bugs should be filed on Storyboard, not GitHub:
 
-   https://storyboard.openstack.org/#!/project_group/93
+   https://storyboard.openstack.org/#!/project_group/searchlight

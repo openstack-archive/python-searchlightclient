@@ -23,7 +23,7 @@ hosted on `OpenStack git repository`_. Patches must be submitted using
 pull requests.
 
 .. _OpenStack git repository: https://git.openstack.org/cgit/openstack/python-searchlightclient
-.. _Storyboard: https://storyboard.openstack.org/#!/project_group/93
+.. _Storyboard: https://storyboard.openstack.org/#!/project_group/searchlight
 .. _Gerrit: https://docs.openstack.org/infra/manual/developers.html#development-workflow
 
 python-searchlightclient is licensed under the Apache License like the rest of
@@ -140,7 +140,7 @@ To use with keystone as the authentication system::
 * License: Apache License, Version 2.0
 * Documentation: https://docs.openstack.org/developer/python-searchlightclient
 * Source: https://git.openstack.org/cgit/openstack/python-searchlightclient
-* Bugs: https://storyboard.openstack.org/#!/project_group/93
+* Bugs: https://storyboard.openstack.org/#!/project_group/searchlight
 
 Testing
 -------
