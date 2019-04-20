@@ -22,7 +22,7 @@ hosted on `OpenStack git repository`_. Patches must be submitted using
 `Gerrit`_, *not* git repo
 pull requests.
 
-.. _OpenStack git repository: https://git.openstack.org/cgit/openstack/python-searchlightclient
+.. _OpenStack git repository: https://opendev.org/openstack/python-searchlightclient
 .. _Storyboard: https://storyboard.openstack.org/#!/project_group/searchlight
 .. _Gerrit: https://docs.openstack.org/infra/manual/developers.html#development-workflow
 
@@ -50,7 +50,7 @@ Setup the client from source
 
 * Clone repository for python-searchlightclient::
 
-    $ git clone https://git.openstack.org/openstack/python-searchlightclient.git
+    $ git clone https://opendev.org/openstack/python-searchlightclient.git
     $ cd python-searchlightclient
 
 * Setup a virtualenv
@@ -139,7 +139,7 @@ To use with keystone as the authentication system::
 
 * License: Apache License, Version 2.0
 * Documentation: https://docs.openstack.org/developer/python-searchlightclient
-* Source: https://git.openstack.org/cgit/openstack/python-searchlightclient
+* Source: https://opendev.org/openstack/python-searchlightclient
 * Bugs: https://storyboard.openstack.org/#!/project_group/searchlight
 
 Testing
