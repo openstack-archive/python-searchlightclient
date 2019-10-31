@@ -29,7 +29,9 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'openstackdocstheme']
+extensions = ['sphinx.ext.autodoc',
+              'openstackdocstheme',
+              'sphinxcontrib.rsvgconverter']
 
 autoclass_content = 'both'
 
@@ -191,13 +193,26 @@ htmlhelp_basename = 'python-searchlightclientdoc'
 # The font size ('10pt', '11pt' or '12pt').
 #latex_font_size = '10pt'
 
+latex_use_xindy = False
+
+latex_domain_indices = False
+
+latex_elements = {
+    # Additional stuff for the LaTeX preamble.
+    # openany: Skip blank pages in generated PDFs
+    'extraclassoptions': 'openany,oneside',
+    'makeindex': '',
+    'printindex': '',
+    'preamble': r'\setcounter{tocdepth}{3}',
+}
+
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual])
 # .
 latex_documents = [
-    ('index', 'python-searchlightclient.tex',
+    ('index', 'doc-python-searchlightclient.tex',
      'python-searchlightclient Documentation',
-     'OpenStack Foundation', 'manual'),
+     'OpenStack Foundation', 'manual', True),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
