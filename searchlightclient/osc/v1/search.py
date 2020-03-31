@@ -133,4 +133,4 @@ class SearchResource(command.Lister):
         return (columns, result)
 
     def _modify_query_string(self, query_string):
-        return query_string.replace('/', '\/')
+        return query_string.replace(r'/', r'\/')

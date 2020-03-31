@@ -87,7 +87,7 @@ class TestSearchResource(TestSearch):
     def test_search_regexp_slashes_in_query_string(self):
         """Escape slashes in querystrings so not to be treated as regexp"""
         self._test_search(["this/has/some/slashes"],
-            query={"query_string": {"query": "this\/has\/some\/slashes"}},
+            query={"query_string": {"query": r"this\/has\/some\/slashes"}},
             _source=['id', 'name', 'updated_at'],
             all_projects=False, type=None)
 

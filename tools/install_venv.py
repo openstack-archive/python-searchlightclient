@@ -42,7 +42,7 @@ def print_help(project, venv, root):
 
     $ %(root)s/tools/with_venv.sh <your command>
     """
-    print help % dict(project=project, venv=venv, root=root)
+    print(help % dict(project=project, venv=venv, root=root))
 
 
 def main(argv):
@@ -69,6 +69,7 @@ def main(argv):
     install.create_virtualenv(no_site_packages=options.no_site_packages)
     install.install_dependencies()
     print_help(project, venv, root)
+
 
 if __name__ == '__main__':
     main(sys.argv)
