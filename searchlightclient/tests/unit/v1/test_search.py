@@ -12,8 +12,8 @@
 
 from searchlightclient.v1 import search
 
-import mock
 import testtools
+from unittest import mock
 
 
 class SearchManagerTest(testtools.TestCase):

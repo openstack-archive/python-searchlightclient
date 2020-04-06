@@ -12,8 +12,8 @@
 
 from searchlightclient.v1 import facets
 
-import mock
 import testtools
+from unittest import mock
 
 
 class FacetsManagerTest(testtools.TestCase):

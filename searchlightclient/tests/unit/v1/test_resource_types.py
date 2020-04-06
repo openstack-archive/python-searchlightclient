@@ -12,8 +12,8 @@
 
 from searchlightclient.v1 import resource_types
 
-import mock
 import testtools
+from unittest import mock
 
 
 class ResourceTypeManagerTest(testtools.TestCase):

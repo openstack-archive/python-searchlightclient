@@ -13,7 +13,7 @@
 #   under the License.
 #
 
-import mock
+from unittest import mock
 
 from searchlightclient.tests.unit.osc import fakes
 from searchlightclient.tests.unit.osc import utils
