@@ -23,10 +23,9 @@ from oslo_serialization import jsonutils
 from oslo_utils import encodeutils
 from oslo_utils import importutils
 import prettytable
-import six
-from six.moves.urllib import error
-from six.moves.urllib import parse
-from six.moves.urllib import request
+from urllib import error
+from urllib import parse
+from urllib import request
 import yaml
 
 from searchlightclient import exc
@@ -149,10 +148,7 @@ def print_update_list(lst, fields, formatters=None):
 
         pt.add_row(row)
 
-    if six.PY3:
-        print(encodeutils.safe_encode(pt.get_string()).decode())
-    else:
-        print(encodeutils.safe_encode(pt.get_string()))
+    print(encodeutils.safe_encode(pt.get_string()).decode())
 
 
 def find_resource(manager, name_or_id):
