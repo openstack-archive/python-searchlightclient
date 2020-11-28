@@ -1,8 +1,0 @@
-- project:
-    templates:
-      - openstack-python3-wallaby-jobs
-      - openstack-cover-jobs
-      - publish-openstack-docs-pti
-      - check-requirements
-      - openstackclient-plugin-jobs
-      - openstack-lower-constraints-jobs
